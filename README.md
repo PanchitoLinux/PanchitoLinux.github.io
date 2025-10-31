@@ -1,2 +1,0 @@
-# PanchitoLinux.github.io
-lol
