@@ -1,0 +1,207 @@
+:root {
+    --bg-dark: #12131C;
+    --card-bg: #1A1C29;
+    --accent: #55FF55;
+    /* Verde Minecraft */
+    --accent-hover: #33cc33;
+    --text-main: #FFFFFF;
+    --text-muted: #A0A5C0;
+    --border-color: #2A2D42;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+body {
+    background-color: var(--bg-dark);
+    color: var(--text-main);
+    line-height: 1.6;
+}
+
+/* Tipografía retro */
+.pixel-text,
+.pixel-title {
+    font-family: 'VT323', monospace;
+    letter-spacing: 1px;
+}
+
+/* Header */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 10%;
+    background-color: rgba(18, 19, 28, 0.9);
+    border-bottom: 1px solid var(--border-color);
+    position: sticky;
+    top: 0;
+    backdrop-filter: blur(8px);
+    z-index: 100;
+}
+
+/* Alineación del Logo con la Imagen */
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1.8rem;
+    font-weight: bold;
+}
+
+.logo-img {
+    height: 38px;
+    width: auto;
+    object-fit: contain;
+}
+
+.badge {
+    font-size: 0.8rem;
+    background: #383B56;
+    padding: 0.2rem 0.5rem;
+    border-radius: 4px;
+}
+
+nav a {
+    color: var(--text-muted);
+    text-decoration: none;
+    margin-left: 1.5rem;
+    transition: color 0.3s;
+}
+
+nav a:hover {
+    color: var(--text-main);
+}
+
+/* Hero Section */
+.hero {
+    text-align: center;
+    padding: 5rem 1rem;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.hero .pixel-title {
+    font-size: 3.5rem;
+    color: var(--accent);
+    margin-bottom: 1rem;
+}
+
+.hero-subtitle {
+    font-size: 1.2rem;
+    color: var(--text-muted);
+    margin-bottom: 2rem;
+}
+
+/* Botones */
+.btn {
+    display: inline-block;
+    padding: 0.8rem 1.8rem;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.2s ease;
+}
+
+.btn-primary,
+.btn-download {
+    background-color: var(--accent);
+    color: #000;
+}
+
+.btn-primary:hover,
+.btn-download:hover {
+    background-color: var(--accent-hover);
+    transform: translateY(-2px);
+}
+
+.btn-secondary {
+    background-color: #2A2D42;
+    color: var(--text-main);
+}
+
+.btn-secondary:hover {
+    background-color: #383B56;
+}
+
+/* Downloads Grid */
+.downloads-section {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 4rem 1rem;
+    text-align: center;
+}
+
+.section-desc {
+    color: var(--text-muted);
+    margin-bottom: 3rem;
+}
+
+.cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.card {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 2rem;
+    text-align: left;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.card.featured {
+    border-color: var(--accent);
+    box-shadow: 0 0 20px rgba(85, 255, 85, 0.15);
+}
+
+.card-tag {
+    position: absolute;
+    top: -12px;
+    right: 20px;
+    background: var(--accent);
+    color: #000;
+    font-size: 0.75rem;
+    font-weight: bold;
+    padding: 0.2rem 0.6rem;
+    border-radius: 12px;
+}
+
+.card h3 {
+    font-size: 1.4rem;
+}
+
+.version-date {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin-bottom: 1rem;
+    display: block;
+}
+
+.features-list {
+    list-style: none;
+    margin: 1.5rem 0;
+    flex-grow: 1;
+}
+
+.features-list li {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    margin-bottom: 0.5rem;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 2rem;
+    border-top: 1px solid var(--border-color);
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
