@@ -2,9 +2,9 @@
     --bg-dark: #12131C;
     --card-bg: rgba(26, 28, 41, 0.82);
     /* Transparencia para dejar entrever el fondo */
-    --accent: #55FF55;
-    /* Verde Minecraft */
-    --accent-hover: #33cc33;
+    --accent: #00A80E;
+    /* Verde deslumbrante */
+    --accent-hover: #00870b;
     --text-main: #FFFFFF;
     --text-muted: #A0A5C0;
     --border-color: rgba(255, 255, 255, 0.12);
@@ -39,17 +39,16 @@ body::before {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    filter: blur(8px) brightness(1.00);
+    filter: blur(2px) brightness(2.00);
     z-index: -1;
     transform: scale(1.05);
-    /* Evita bordes blancos por el desenfoque */
 }
 
 /* Tipografía retro */
 .pixel-text,
 .pixel-title {
     font-family: 'VT323', monospace;
-    letter-spacing: 1px;
+    letter-spacing: 3px;
 }
 
 /* Header / Navbar */
@@ -113,6 +112,11 @@ nav a:hover {
     color: var(--accent);
     margin-bottom: 1rem;
     text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
+
+    /* Animaciones: Entrada con rebote + flotación retro continua */
+    animation:
+        bounceInDown 1.2s cubic-bezier(0.215, 0.61, 0.355, 1) forwards,
+        floatRetro 3s ease-in-out infinite 1.2s;
 }
 
 .hero-subtitle {
@@ -120,39 +124,177 @@ nav a:hover {
     color: #e0e2ec;
     margin-bottom: 2rem;
     text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.8);
+
+    /* Animación suave de aparición para el subtítulo */
+    animation: fadeIn 1.5s ease-out 0.4s both;
 }
 
-/* Botones */
+/* ==========================================
+   ANIMACIONES DE ENTRADA Y MOVIMIENTO
+   ========================================== */
+
+/* 1. Caída con rebote para el título principal */
+@keyframes bounceInDown {
+    0% {
+        opacity: 0;
+        transform: translateY(-200px) scale(0.8);
+    }
+
+    60% {
+        opacity: 1;
+        transform: translateY(20px) scale(1.05);
+    }
+
+    80% {
+        transform: translateY(-10px) scale(0.98);
+    }
+
+    100% {
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* 2. Flotación constante estilo retro/arcade */
+@keyframes floatRetro {
+
+    0%,
+    100% {
+        transform: translateY(0);
+        text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
+    }
+
+    50% {
+        transform: translateY(-8px);
+        text-shadow: 2px 10px 18px rgba(0, 168, 14, 0.6);
+    }
+}
+
+/* 3. Aparición suave (Fade In) */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* 4. Pulso brillante para los botones principales de descarga */
+@keyframes pulseGlow {
+
+    0%,
+    100% {
+        box-shadow:
+            0 0 0 2px #000,
+            0 0 0 4px var(--accent),
+            0 6px 0 0 #006b08,
+            0 6px 0 2px #000,
+            0 10px 20px rgba(0, 168, 14, 0.4);
+    }
+
+    50% {
+        box-shadow:
+            0 0 0 2px #000,
+            0 0 0 4px var(--accent),
+            0 6px 0 0 #006b08,
+            0 6px 0 2px #000,
+            0 12px 30px rgba(0, 168, 14, 0.8);
+        /* Brillo intenso */
+    }
+}
+
+/* ==========================================
+   BOTONES ESTILO PIXEL RETRO / MINECRAFT
+   ========================================== */
+
 .btn {
     display: inline-block;
-    padding: 0.8rem 1.8rem;
-    border-radius: 8px;
+    padding: 0.9rem 2rem;
     text-decoration: none;
-    font-weight: 600;
-    transition: all 0.2s ease;
+    font-family: 'VT323', monospace;
+    /* Fuente Pixel retro */
+    font-size: 1.5rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    text-align: center;
+    cursor: pointer;
+    position: relative;
+    user-select: none;
+    transition: all 0.1s ease;
+    border-radius: 0;
+    /* Sin bordes redondeados modernos */
 }
 
+/* Botones principales de descarga (Estilo Minecraft verde) */
 .btn-primary,
 .btn-download {
     background-color: var(--accent);
-    color: #000;
-    box-shadow: 0 4px 15px rgba(85, 255, 85, 0.3);
+    color: #ffffff;
+    font-weight: bold;
+
+    /* Borde pixelado con sombra 3D rígida */
+    box-shadow:
+        0 0 0 2px #000,
+        0 0 0 4px var(--accent),
+        0 6px 0 0 #006b08,
+        0 6px 0 2px #000,
+        0 10px 20px rgba(0, 168, 14, 0.4);
+
+    /* Animación de entrada y resplandor pulso */
+    animation:
+        fadeIn 1.5s ease-out 0.6s both,
+        pulseGlow 2s infinite ease-in-out;
 }
 
 .btn-primary:hover,
 .btn-download:hover {
     background-color: var(--accent-hover);
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(85, 255, 85, 0.4);
+    transform: translateY(2px);
+
+    /* Sombra reducida al presionar/pasar el cursor */
+    box-shadow:
+        0 0 0 2px #000,
+        0 0 0 4px var(--accent-hover),
+        0 4px 0 0 #006b08,
+        0 4px 0 2px #000,
+        0 8px 25px rgba(0, 168, 14, 0.7);
 }
 
+.btn-primary:active,
+.btn-download:active {
+    transform: translateY(6px);
+
+    /* Click "presionado" tipo botón de juego */
+    box-shadow:
+        0 0 0 2px #000,
+        0 0 0 4px var(--accent-hover),
+        0 0 0 0 #006b08,
+        0 0 0 2px #000;
+}
+
+/* Botones secundarios estilo pixel */
 .btn-secondary {
-    background-color: rgba(42, 45, 66, 0.8);
-    color: var(--text-main);
+    background-color: #383b56;
+    color: #ffffff;
+    box-shadow:
+        0 0 0 2px #000,
+        0 0 0 4px #52577a,
+        0 5px 0 0 #1d1e2c,
+        0 5px 0 2px #000;
 }
 
 .btn-secondary:hover {
-    background-color: rgba(56, 59, 86, 0.9);
+    background-color: #484c6e;
+    transform: translateY(2px);
+    box-shadow: 0 0 0 2px #000, 0 0 0 4px #656b96, 0 3px 0 0 #1d1e2c, 0 3px 0 2px #000;
+}
+
+.btn-secondary:active {
+    transform: translateY(5px);
+    box-shadow: 0 0 0 2px #000, 0 0 0 4px #656b96, 0 0 0 0 #1d1e2c, 0 0 0 2px #000;
 }
 
 /* Seccion de Descargas */
@@ -195,7 +337,7 @@ nav a:hover {
 
 .card.featured {
     border-color: var(--accent);
-    box-shadow: 0 0 25px rgba(85, 255, 85, 0.25);
+    box-shadow: 0 0 25px rgba(0, 168, 14, 0.25);
 }
 
 .card-tag {
@@ -203,7 +345,7 @@ nav a:hover {
     top: -12px;
     right: 20px;
     background: var(--accent);
-    color: #000;
+    color: #ffffff;
     font-size: 0.75rem;
     font-weight: bold;
     padding: 0.2rem 0.6rem;
