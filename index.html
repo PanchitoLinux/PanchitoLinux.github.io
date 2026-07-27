@@ -15,6 +15,10 @@
 
 <body>
 
+    <!-- Elemento Audio Oculto -->
+    <!-- Reemplaza 'click.mp3' por la ruta o nombre de tu archivo de sonido -->
+    <audio id="clickSound" src="click.mp3" preload="auto"></audio>
+
     <!-- Encabezado / Navbar -->
     <header class="navbar">
         <div class="logo">
@@ -94,6 +98,30 @@
         <p>Creado por <strong>PanchitoLinux y AxelComputer</strong> | Proyecto de PanchoProjects</p>
     </footer>
 
+    <!-- Script de Reproducción del Archivo de Audio -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const audio = document.getElementById('clickSound');
+            const buttons = document.querySelectorAll('.btn');
+
+            buttons.forEach(button => {
+                button.addEventListener('pointerdown', () => {
+                    if (audio) {
+                        // Reiniciar el tiempo para reproducir en clics rápidos o repetidos
+                        audio.currentTime = 0;
+                        audio.play().catch(err => {
+                            console.warn("No se pudo reproducir el archivo de audio:", err);
+                        });
+                    }
+
+                    // Vibración para móviles
+                    if (navigator.vibrate) {
+                        navigator.vibrate(15);
+                    }
+                });
+            });
+        });
+    </script>
 </body>
 
 </html>
