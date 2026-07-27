@@ -1,12 +1,13 @@
 :root {
     --bg-dark: #12131C;
-    --card-bg: #1A1C29;
+    --card-bg: rgba(26, 28, 41, 0.82);
+    /* Transparencia para dejar entrever el fondo */
     --accent: #55FF55;
     /* Verde Minecraft */
     --accent-hover: #33cc33;
     --text-main: #FFFFFF;
     --text-muted: #A0A5C0;
-    --border-color: #2A2D42;
+    --border-color: rgba(255, 255, 255, 0.12);
 }
 
 * {
@@ -20,6 +21,28 @@ body {
     background-color: var(--bg-dark);
     color: var(--text-main);
     line-height: 1.6;
+    min-height: 100vh;
+    position: relative;
+    overflow-x: hidden;
+}
+
+/* Fondo decorativo desenfocado */
+body::before {
+    content: "";
+    position: fixed;
+    top: -10px;
+    left: -10px;
+    right: -10px;
+    bottom: -10px;
+    background-image: linear-gradient(rgba(18, 19, 28, 0.65),
+            rgba(18, 19, 28, 0.85)), url('wp6505487.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    filter: blur(8px) brightness(1.00);
+    z-index: -1;
+    transform: scale(1.05);
+    /* Evita bordes blancos por el desenfoque */
 }
 
 /* Tipografía retro */
@@ -29,21 +52,22 @@ body {
     letter-spacing: 1px;
 }
 
-/* Header */
+/* Header / Navbar */
 .navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 1.5rem 10%;
-    background-color: rgba(18, 19, 28, 0.9);
+    background-color: rgba(18, 19, 28, 0.75);
     border-bottom: 1px solid var(--border-color);
     position: sticky;
     top: 0;
-    backdrop-filter: blur(8px);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
     z-index: 100;
 }
 
-/* Alineación del Logo con la Imagen */
+/* Logo */
 .logo {
     display: flex;
     align-items: center;
@@ -60,7 +84,7 @@ body {
 
 .badge {
     font-size: 0.8rem;
-    background: #383B56;
+    background: rgba(56, 59, 86, 0.8);
     padding: 0.2rem 0.5rem;
     border-radius: 4px;
 }
@@ -88,12 +112,14 @@ nav a:hover {
     font-size: 3.5rem;
     color: var(--accent);
     margin-bottom: 1rem;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
 }
 
 .hero-subtitle {
     font-size: 1.2rem;
-    color: var(--text-muted);
+    color: #e0e2ec;
     margin-bottom: 2rem;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.8);
 }
 
 /* Botones */
@@ -110,24 +136,26 @@ nav a:hover {
 .btn-download {
     background-color: var(--accent);
     color: #000;
+    box-shadow: 0 4px 15px rgba(85, 255, 85, 0.3);
 }
 
 .btn-primary:hover,
 .btn-download:hover {
     background-color: var(--accent-hover);
     transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(85, 255, 85, 0.4);
 }
 
 .btn-secondary {
-    background-color: #2A2D42;
+    background-color: rgba(42, 45, 66, 0.8);
     color: var(--text-main);
 }
 
 .btn-secondary:hover {
-    background-color: #383B56;
+    background-color: rgba(56, 59, 86, 0.9);
 }
 
-/* Downloads Grid */
+/* Seccion de Descargas */
 .downloads-section {
     max-width: 1100px;
     margin: 0 auto;
@@ -155,11 +183,19 @@ nav a:hover {
     position: relative;
     display: flex;
     flex-direction: column;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(255, 255, 255, 0.3);
 }
 
 .card.featured {
     border-color: var(--accent);
-    box-shadow: 0 0 20px rgba(85, 255, 85, 0.15);
+    box-shadow: 0 0 25px rgba(85, 255, 85, 0.25);
 }
 
 .card-tag {
@@ -193,15 +229,17 @@ nav a:hover {
 
 .features-list li {
     font-size: 0.9rem;
-    color: var(--text-muted);
+    color: #c5c8de;
     margin-bottom: 0.5rem;
 }
 
-/* Footer */
+/* Pie de página */
 footer {
     text-align: center;
     padding: 2rem;
     border-top: 1px solid var(--border-color);
     color: var(--text-muted);
     font-size: 0.9rem;
+    background-color: rgba(18, 19, 28, 0.8);
+    backdrop-filter: blur(10px);
 }
