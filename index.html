@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
@@ -31,65 +31,64 @@
             <span class="badge">Launcher</span>
         </div>
         <nav>
-            <a href="#descargas">Descargas</a>
+            <a href="#descargas" data-i18n="descargas">Downloads</a>
+            <button id="langToggle" class="lang-btn" type="button">Español</button>
             <a href="https://github.com/PanchitoLinux" target="_blank" class="github-link">GitHub</a>
         </nav>
     </header>
 
     <!-- Hero Section -->
     <section class="hero">
-        <h1 class="pixel-title">Revive la nostalgia de Minecraft Ahora!</h1>
-        <p class="hero-subtitle">PanchoCraft Es un launcher personalizado pensado para volar en el tiempo. Sonidos
-            clásicos, versiones
-            Beta puras y cero complicaciones para pcs muy antiguas.</p>
-        <a href="#descargas" class="btn btn-primary">Descargalo Ahora!!</a>
+        <h1 class="pixel-title" data-i18n="hero_title">Relive the Nostalgia of Minecraft Now!</h1>
+        <p class="hero-subtitle" data-i18n="hero_sub">PanchoCraft is a custom launcher made to travel back in time. Classic sounds, pure Beta versions and zero hassle for very old PCs.</p>
+        <a href="#descargas" class="btn btn-primary" data-i18n="download_now">Download Now!!</a>
     </section>
 
     <!-- Sección de Descargas -->
     <section id="descargas" class="downloads-section">
-        <h2>Versiones Disponibles</h2>
-        <p class="section-desc">Selecciona la versión que mejor se adapte a tu PC.</p>
+        <h2 data-i18n="versions_title">Available Versions</h2>
+        <p class="section-desc" data-i18n="versions_desc">Pick the version that best fits your PC.</p>
 
         <div class="cards-grid">
 
             <!-- Versión Estable La Mas Actualizada x86 y x64 bits Windows(Recomendada) -->
             <div class="card featured">
-                <span class="card-tag">Recomendada y la mas actualizada</span>
+                <span class="card-tag" data-i18n="tag_featured">Recommended and most up-to-date</span>
                 <h3>v6.5_x86 Stable</h3>
-                <span class="version-date">Skin Online Funcionando correctamente en ely.by</span>
-                <p>Incluye Optifine y Forge</p>
+                <span class="version-date" data-i18n="ver_date_1">Online Skin working correctly on ely.by</span>
+                <p data-i18n="incl">Includes Optifine and Forge</p>
                 <ul class="features-list">
-                    <li>✓ Optifine y Launcher MUY COMPRIMIDO</li>
-                    <li>✓Reportaje a mi server y Nuevas Versiones Alphas</li>
-                    <li>✓ ARREGLO DE Skin y Carpeta de mods para alternar activar y desactivar</li>
+                    <li data-i18n="f1">✓ Optifine and Launcher VERY COMPRESSED</li>
+                    <li data-i18n="f2">✓ Reporting to my server and New Alpha Versions</li>
+                    <li data-i18n="f3">✓ SKIN FIX and mods folder to toggle enable/disable</li>
                 </ul>
                 <a href="https://github.com/PanchitoLinux/HackingPanchito/releases/download/Version/LauncherPanchitoNostalgia_v6.5.7z"
-                    class="btn btn-download">Descargar</a>
+                    class="btn btn-download" data-i18n="download">Download</a>
             </div>
 
             <!-- Versión Antigua Bien -->
             <div class="card">
                 <h3>v4.0.0 fix Optifine</h3>
-                <span class="version-date">Sin instalación</span>
-                <p>La vercion que funciono por mucho tiempo :3</p>
+                <span class="version-date" data-i18n="ver_date_2">No installation</span>
+                <p data-i18n="p_v4">The version that worked for a long time :3</p>
                 <ul class="features-list">
-                    <li>✓ Optifine Antiguo No recomendado</li>
-                    <li>✓ No requiere instalación</li>
+                    <li data-i18n="f4">✓ Old Optifine Not recommended</li>
+                    <li data-i18n="f5">✓ No installation required</li>
                 </ul>
                 <a href="https://www.mediafire.com/file/uzsva9yq0sbzbh7/LauncherPanchitoNostalgia_UI_Update4.0.0_FIX.7z/file"
-                    class="btn btn-secondary">Descargar</a>
+                    class="btn btn-secondary" data-i18n="download">Download</a>
             </div>
 
             <!-- Versión Antigua OLD solo si no funcionan las demas -->
             <div class="card">
-                <h3>v0.0.1 OLD Solo si no te funciona</h3>
-                <span class="version-date">Legacy Build</span>
-                <p>Primera versión de prueba. Útil para testing de compatibilidad en máquinas muy viejas.</p>
+                <h3 data-i18n="h3_old">v0.0.1 OLD Only if it doesn't work for you</h3>
+                <span class="version-date" data-i18n="ver_date_3">Legacy Build</span>
+                <p data-i18n="p_old">First test version. Useful for compatibility testing on very old machines.</p>
                 <ul class="features-list">
-                    <li>✓ Modo Clásico puro</li>
+                    <li data-i18n="f6">✓ Pure Classic Mode</li>
                 </ul>
                 <a href="https://www.mediafire.com/file/olpnx8snlt0ps9s/PanchitoLinux+Nostalgia+Launcher.7z/file"
-                    class="btn btn-secondary">Descargar</a>
+                    class="btn btn-secondary" data-i18n="download">Download</a>
             </div>
 
         </div>
@@ -97,26 +96,108 @@
 
     <!-- Pie de página -->
     <footer>
-        <p>Creado por <strong>PanchitoLinux y AxelComputer</strong> | Proyecto de PanchoProjects</p>
+        <p data-i18n-html="footer">Created by <strong>PanchitoLinux and AxelComputer</strong> | PanchoProjects Project</p>
     </footer>
 
-    <!-- Script de Reproducción del Archivo de Audio -->
+    <!-- Script de Reproducción del Archivo de Audio + Idioma -->
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
+        const I18N = {
+            en: {
+                descargas: "Downloads",
+                hero_title: "Relive the Nostalgia of Minecraft Now!",
+                hero_sub: "PanchoCraft is a custom launcher made to travel back in time. Classic sounds, pure Beta versions and zero hassle for very old PCs.",
+                download_now: "Download Now!!",
+                versions_title: "Available Versions",
+                versions_desc: "Pick the version that best fits your PC.",
+                tag_featured: "Recommended and most up-to-date",
+                ver_date_1: "Online Skin working correctly on ely.by",
+                incl: "Includes Optifine and Forge",
+                f1: "✓ Optifine and Launcher VERY COMPRESSED",
+                f2: "✓ Reporting to my server and New Alpha Versions",
+                f3: "✓ SKIN FIX and mods folder to toggle enable/disable",
+                ver_date_2: "No installation",
+                p_v4: "The version that worked for a long time :3",
+                f4: "✓ Old Optifine Not recommended",
+                f5: "✓ No installation required",
+                h3_old: "v0.0.1 OLD Only if it doesn't work for you",
+                ver_date_3: "Legacy Build",
+                p_old: "First test version. Useful for compatibility testing on very old machines.",
+                f6: "✓ Pure Classic Mode",
+                download: "Download",
+                footer: "Created by <strong>PanchitoLinux and AxelComputer</strong> | PanchoProjects Project",
+                lang_btn: "Español"
+            },
+            es: {
+                descargas: "Descargas",
+                hero_title: "Revive la nostalgia de Minecraft Ahora!",
+                hero_sub: "PanchoCraft Es un launcher personalizado pensado para volar en el tiempo. Sonidos clásicos, versiones Beta puras y cero complicaciones para pcs muy antiguas.",
+                download_now: "Descargalo Ahora!!",
+                versions_title: "Versiones Disponibles",
+                versions_desc: "Selecciona la versión que mejor se adapte a tu PC.",
+                tag_featured: "Recomendada y la mas actualizada",
+                ver_date_1: "Skin Online Funcionando correctamente en ely.by",
+                incl: "Incluye Optifine y Forge",
+                f1: "✓ Optifine y Launcher MUY COMPRIMIDO",
+                f2: "✓Reportaje a mi server y Nuevas Versiones Alphas",
+                f3: "✓ ARREGLO DE Skin y Carpeta de mods para alternar activar y desactivar",
+                ver_date_2: "Sin instalación",
+                p_v4: "La vercion que funciono por mucho tiempo :3",
+                f4: "✓ Optifine Antiguo No recomendado",
+                f5: "✓ No requiere instalación",
+                h3_old: "v0.0.1 OLD Solo si no te funciona",
+                ver_date_3: "Legacy Build",
+                p_old: "Primera versión de prueba. Útil para testing de compatibilidad en máquinas muy viejas.",
+                f6: "✓ Modo Clásico puro",
+                download: "Descargar",
+                footer: "Creado por <strong>PanchitoLinux y AxelComputer</strong> | Proyecto de PanchoProjects",
+                lang_btn: "English"
+            }
+        };
+
+        function applyLang(lang) {
+            document.documentElement.lang = lang;
+            document.querySelectorAll('[data-i18n]').forEach(function (el) {
+                const key = el.getAttribute('data-i18n');
+                if (I18N[lang] && I18N[lang][key] !== undefined) {
+                    el.textContent = I18N[lang][key];
+                }
+            });
+            document.querySelectorAll('[data-i18n-html]').forEach(function (el) {
+                const key = el.getAttribute('data-i18n-html');
+                if (I18N[lang] && I18N[lang][key] !== undefined) {
+                    el.innerHTML = I18N[lang][key];
+                }
+            });
+            const btn = document.getElementById('langToggle');
+            if (btn) btn.textContent = I18N[lang].lang_btn;
+            try { localStorage.setItem('lang', lang); } catch (e) {}
+        }
+
+        document.addEventListener('DOMContentLoaded', function () {
+            let lang = 'en';
+            try { lang = localStorage.getItem('lang') || 'en'; } catch (e) {}
+            if (lang !== 'en' && lang !== 'es') lang = 'en';
+            applyLang(lang);
+
+            const toggle = document.getElementById('langToggle');
+            if (toggle) {
+                toggle.addEventListener('click', function () {
+                    lang = (lang === 'en') ? 'es' : 'en';
+                    applyLang(lang);
+                });
+            }
+
+            // Reproducción del archivo de audio en los botones
             const audio = document.getElementById('clickSound');
             const buttons = document.querySelectorAll('.btn');
-
-            buttons.forEach(button => {
-                button.addEventListener('pointerdown', () => {
+            buttons.forEach(function (button) {
+                button.addEventListener('pointerdown', function () {
                     if (audio) {
-                        // Reiniciar el tiempo para reproducir en clics rápidos o repetidos
                         audio.currentTime = 0;
-                        audio.play().catch(err => {
+                        audio.play().catch(function (err) {
                             console.warn("No se pudo reproducir el archivo de audio:", err);
                         });
                     }
-
-                    // Vibración para móviles
                     if (navigator.vibrate) {
                         navigator.vibrate(15);
                     }
