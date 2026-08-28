@@ -280,13 +280,14 @@
                 });
             });
 
-            // Botón de descarga Android: en PC redirige a la sección PC
+            // Botón de descarga Android: siempre descarga el APK
+            // (en PC abre el enlace en una pestaña nueva para que se vea la acción)
             const androidBtn = document.querySelector('.android-link');
             if (androidBtn) {
-                androidBtn.addEventListener('click', function (e) {
+                androidBtn.addEventListener('click', function () {
                     if (!isAndroid) {
-                        e.preventDefault();
-                        routeTo('descargas');
+                        androidBtn.setAttribute('target', '_blank');
+                        androidBtn.setAttribute('rel', 'noopener');
                     }
                 });
             }
