@@ -32,6 +32,8 @@
         </div>
         <nav>
             <a href="#descargas" data-i18n="descargas">Downloads</a>
+            <a href="#android" data-i18n="android_nav">Android</a>
+            <a href="https://PanchitoLinux.github.io/PanchoProjects/" target="_blank" class="github-link" data-i18n="projects">Projects</a>
             <button id="langToggle" class="lang-btn" type="button">Español</button>
             <a href="https://github.com/PanchitoLinux" target="_blank" class="github-link">GitHub</a>
         </nav>
@@ -94,6 +96,31 @@
         </div>
     </section>
 
+    <!-- Sección de Descargas Android -->
+    <section id="android" class="downloads-section">
+        <h2 data-i18n="android_title">Android Downloads</h2>
+        <p class="section-desc" data-i18n="android_desc">Take PanchoCraft with you on your phone.</p>
+
+        <div class="cards-grid">
+
+            <!-- Versión Android (Recomendada) -->
+            <div class="card featured">
+                <span class="card-tag" data-i18n="tag_android">For Android</span>
+                <h3>v1.0.1_Beta</h3>
+                <span class="version-date" data-i18n="ver_date_android">Launcher for Android devices</span>
+                <p data-i18n="incl_android">Includes Optifine and Forge</p>
+                <ul class="features-list">
+                    <li data-i18n="fa1">✓ Play on the go with the same nostalgic experience</li>
+                    <li data-i18n="fa2">✓ Touch controls and external controller support</li>
+                    <li data-i18n="fa3">✓ SKIN FIX and mods folder to toggle enable/disable</li>
+                </ul>
+                <a href="https://github.com/PanchitoLinux/PanchoCraftLauncherAndroid/releases/download/Version1.0.1Beta/PanchitoLauncher-debug.apk"
+                    class="btn btn-download android-link" data-i18n="download">Download</a>
+            </div>
+
+        </div>
+    </section>
+
     <!-- Pie de página -->
     <footer>
         <p data-i18n-html="footer">Created by <strong>PanchitoLinux and AxelComputer</strong> | PanchoProjects Project</p>
@@ -125,7 +152,17 @@
                 f6: "✓ Pure Classic Mode",
                 download: "Download",
                 footer: "Created by <strong>PanchitoLinux and AxelComputer</strong> | PanchoProjects Project",
-                lang_btn: "Español"
+                lang_btn: "Español",
+                android_nav: "Android",
+                projects: "Projects",
+                android_title: "Android Downloads",
+                android_desc: "Take PanchoCraft with you on your phone.",
+                tag_android: "For Android",
+                ver_date_android: "Launcher for Android devices",
+                incl_android: "Includes Optifine and Forge",
+                fa1: "✓ Play on the go with the same nostalgic experience",
+                fa2: "✓ Touch controls and external controller support",
+                fa3: "✓ SKIN FIX and mods folder to toggle enable/disable"
             },
             es: {
                 descargas: "Descargas",
@@ -150,7 +187,17 @@
                 f6: "✓ Modo Clásico puro",
                 download: "Descargar",
                 footer: "Creado por <strong>PanchitoLinux y AxelComputer</strong> | Proyecto de PanchoProjects",
-                lang_btn: "English"
+                lang_btn: "English",
+                android_nav: "Android",
+                projects: "Proyectos",
+                android_title: "Descargas Android",
+                android_desc: "Lleva PanchoCraft contigo en tu teléfono.",
+                tag_android: "Para Android",
+                ver_date_android: "Launcher para dispositivos Android",
+                incl_android: "Incluye Optifine y Forge",
+                fa1: "✓ Juega donde sea con la misma experiencia nostálgica",
+                fa2: "✓ Controles táctiles y soporte de mando externo",
+                fa3: "✓ ARREGLO DE Skin y carpeta de mods para alternar activar y desactivar"
             }
         };
 
@@ -203,6 +250,46 @@
                     }
                 });
             });
+
+            // Detección de dispositivo y enrutamiento inteligente de descargas
+            const isAndroid = /android/i.test(navigator.userAgent);
+
+            function routeTo(id) {
+                const el = document.getElementById(id);
+                if (el) el.scrollIntoView({ behavior: 'smooth' });
+            }
+
+            // Botón principal "Download Now!!": en Android lleva a la sección Android
+            const heroBtn = document.querySelector('.hero .btn');
+            if (heroBtn) {
+                heroBtn.addEventListener('click', function (e) {
+                    if (isAndroid) {
+                        e.preventDefault();
+                        routeTo('android');
+                    }
+                });
+            }
+
+            // Botones de descarga PC (no Android): en Android redirigen a la sección Android
+            document.querySelectorAll('.btn-download:not(.android-link)').forEach(function (btn) {
+                btn.addEventListener('click', function (e) {
+                    if (isAndroid) {
+                        e.preventDefault();
+                        routeTo('android');
+                    }
+                });
+            });
+
+            // Botón de descarga Android: en PC redirige a la sección PC
+            const androidBtn = document.querySelector('.android-link');
+            if (androidBtn) {
+                androidBtn.addEventListener('click', function (e) {
+                    if (!isAndroid) {
+                        e.preventDefault();
+                        routeTo('descargas');
+                    }
+                });
+            }
         });
     </script>
 </body>
