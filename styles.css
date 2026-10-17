@@ -17,6 +17,12 @@
     font-family: 'Inter', sans-serif;
 }
 
+/* Scroll suave a anclas SIN que la barra superior tape el título */
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 95px;
+}
+
 body {
     background-color: var(--bg-dark);
     color: var(--text-main);
@@ -371,8 +377,16 @@ nav a:hover {
 
 .cards-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    /* 2 columnas en PC: las 4 versiones quedan en cuadrícula 2x2, uniformes */
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr));
     gap: 2rem;
+}
+
+/* Tablet / ventanas angostas: 2 columnas más compactas */
+@media (max-width: 900px) {
+    .cards-grid {
+        grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
+    }
 }
 
 .card {
@@ -449,6 +463,11 @@ footer {
    RESPONSIVE / MÓVILES (Galaxy S8+ y similares)
    ========================================== */
 @media (max-width: 600px) {
+    /* En móvil el navbar se apila y es más alto: compensar más */
+    html {
+        scroll-padding-top: 175px;
+    }
+
     .navbar {
         flex-direction: column;
         gap: 0.8rem;
